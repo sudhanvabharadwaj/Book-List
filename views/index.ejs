@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+    <link rel="stylesheet" href="/styles/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="main-title">Sudhanva Bharadwaj</h1>
+    <h2 class="sub-title">Books I've read</h3>
+    <p class="intro">
+        A tiny summary and an honest and personal review of the books I have read. This page will be updated as I read more.<br/>Sorted with my top recommendations at the top. You can also sort it by title, newest, or rating.<br/><br/>
+    </p>
+    <hr/>
+    <div class="search-tools">
+        <form class="search" action="/search" method="get">
+            <input type="text" id="search-title" name="searchtitle" placeholder="Search by title" />
+            <input type="submit" value="Search"/>
+        </form>
+        <p class="sort">
+            Sort by <a href="/sort-title">title</a>, <a href="sort-new">newest</a>, or <a href="sort-rating">rating</a>.
+        </p>
+    </div>
+    <% if (books.length != 0) { %>
+        <div class="books-container">
+            <% books.forEach(book => { %>
+                <div class="book">
+                    <a href="/details/<%= book.isbn %>" class="book-link"><img class="book-cover" src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-L.jpg"/>
+                    <h2><%= book.title %></h3></a>
+                    <h4>AUTHOR: <%= book.author %> | DATE READ: <%= book.date.toString().slice(4,15) %> | MY RATING: <%= book.rating %></h4>
+                    <p><%= book.summary %></p>
+                </div>
+            <% }); %>
+        </div>
+    <% } else { %>
+        <div class="books-container">
+            <p>The requested book was not found.</p>
+        </div>
+    <% } %>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+    <link rel="stylesheet" href="/styles/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="main-title">Sudhanva Bharadwaj</h1>
+    <h2 class="sub-title">Books I've read</h3>
+    <br/>
+    <hr/>
+    <div class="books-container">
+        <% book.forEach(book => { %>
+            <div class="book">
+                <img class="book-cover" src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-L.jpg"/>
+                <h2><%= book.title %></h3>
+                <h4>AUTHOR: <%= book.author %> | DATE READ: <%= book.date.toString().slice(4,15) %> | MY RATING: <%= book.rating %></h4>
+                <p><%= book.summary %></p>
+                <p><%= book.review %></p>
+                <p>The Amazon page for the book can be found <a href="https://www.amazon.in/s?k=<%= book.isbn %>" target="_blank">here</a>.</p>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>

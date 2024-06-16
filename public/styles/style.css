@@ -1,0 +1,49 @@
+html{
+    background-color:antiquewhite;
+}
+body {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.main-title {
+    color: #7b4d0f;
+    text-transform: capitalize;
+}
+.sub-title {
+    color: #7b4d0f;
+    text-transform: uppercase;
+}
+.search-tools {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.books-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.book {
+    width: 1000px;
+    height: 600px;
+    border: 1px solid black;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 25px;
+}
+.book-cover {
+    float: left;
+    padding-top: 40px;
+    padding-right: 50px;
+    height: 500px;
+}
+.book-link {
+    text-decoration: none;
+    color: black;
+}
+.book-link:hover {
+    text-decoration: underline;
+}
